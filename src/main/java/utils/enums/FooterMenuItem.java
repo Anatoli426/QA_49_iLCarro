@@ -6,14 +6,13 @@ public enum FooterMenuItem {
     ICON_VK("a[href='https://vk.com/']"),
     ICON_INSTAGRAM("a[href='https://www.instagram.com/']"),
     ICON_SLACK("a[href='https://slack.com/']");
-    private String locator;
+    private final String locator;
 
-
-    FooterMenuItem(String locator){
-        this.locator=locator;
+    FooterMenuItem(String locator) {
+        this.locator = locator;
     }
 
-    public String getLocator(){
+    public String getLocator() {
         return locator;
     }
 }

@@ -1,0 +1,3 @@
+./gradlew clean smoketests
+./gradlew clean smoketests -Pbrowser=edge
+

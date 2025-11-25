@@ -19,8 +19,12 @@ public abstract class BasePage {
         driver = wd;
     }
 
-    @FindBy(css = "div[class='error']")
+    //    @FindBy(css = "div[class='error']")
+//    List<WebElement> listErrorElements;
+    @FindBy(xpath = "//div[contains(@class,'error')]")
     List<WebElement> listErrorElements;
+    @FindBy(xpath = "//mat-dialog-container//button")
+    WebElement btnOkPopUp;
 
     public boolean isTextInErrorPresent(String text) {
         if (listErrorElements == null || listErrorElements.isEmpty())
@@ -37,7 +41,7 @@ public abstract class BasePage {
     }
 
     public <T extends BasePage> T clickButtonHeader(HeaderMenuItem item) {
-        WebElement button = new WebDriverWait(driver, Duration.ofSeconds(10))
+        WebElement button = new WebDriverWait(driver, Duration.ofSeconds(20))
                 .until(ExpectedConditions
                         .elementToBeClickable(By.xpath(item.getLocator())));
         button.click();
